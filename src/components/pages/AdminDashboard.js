@@ -19,7 +19,7 @@ const AdminDashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://ecommerce-back-c18i.onrender.com/api/products', form);
+      await axios.post('https://ecommerce-back-2-m0xb.onrender.com/api/products', form);
       alert('Product added successfully!');
       setForm({ name: '', price: '', image: '', description: '' });
     } catch (err) {
