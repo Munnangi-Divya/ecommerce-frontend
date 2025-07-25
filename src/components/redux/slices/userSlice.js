@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const loginUser = createAsyncThunk('user/login', async (credentials) => {
-  const res = await axios.post('https://ecommerce-back-c18i.onrender.com/api/users/login', credentials);
+  const res = await axios.post('https://ecommerce-back-2-m0xb.onrender.com/api/users/login', credentials);
   return res.data;
 });
 
