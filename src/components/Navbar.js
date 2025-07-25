@@ -1,11 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../redux/slices/userSlice';
 
 const Navbar = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const user = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate('/login');
+  };
 
   return (
     <nav className="navbar">
@@ -23,7 +31,9 @@ const Navbar = () => {
         {user ? (
           <>
             <span className="navbar-user">👤 {user.name}</span>
-            <Link to="/logout" className="navbar-link">Logout</Link>
+            <button className="navbar-link logout-button" onClick={handleLogout}>
+              Logout
+            </button>
           </>
         ) : (
           <>
@@ -37,4 +47,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
