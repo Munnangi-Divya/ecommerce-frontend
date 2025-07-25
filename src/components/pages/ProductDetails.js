@@ -13,7 +13,7 @@ const ProductDetails = () => {
   const [qty, setQty] = useState(1);
 
   useEffect(() => {
-    axios.get(`https://ecommerce-back-c18i.onrender.com/api/products/${id}`)
+    axios.get(`https://ecommerce-back-2-m0xb.onrender.com/api/products/${id}`)
       .then(res => setProduct(res.data))
       .catch(err => console.error(err));
   }, [id]);
